@@ -47,11 +47,11 @@ body {
     gap: 10px;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2563eb;
+    color: #95C674;
 }
 
 .logo-icon {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    background: linear-gradient(135deg, #416529, #416529);
     color: white;
     width: 40px;
     height: 40px;
@@ -78,7 +78,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #2563eb;
+    color: #95C674;
 }
 
 #quote .h1 .p {
@@ -93,7 +93,7 @@ body {
 
 
 .quote-btn {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    background: linear-gradient(135deg, #416529, #416529);
     color: white !important;
     padding: 0.5rem 1.5rem;
     border-radius: 25px;
@@ -135,7 +135,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #a7c6e6 0%, #e2e8f0 100%);
   padding: 4rem 1rem;
   display: flex;
   align-items: center;
@@ -162,7 +162,7 @@ body {
 }
 
 .hero-title .highlight {
-  color: #3b82f6; /* blue highlight */
+  color: #95C674; /* blue highlight */
 }
 
 .hero-subtitle {
@@ -192,7 +192,7 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background: linear-gradient(135deg, #416529, #416529);
   color: white;
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
 }
@@ -204,13 +204,13 @@ body {
 
 .btn-secondary {
   background: white;
-  color: #2563eb;
+  color: #95C674;
   border: 1px solid #cbd5e1;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .btn-secondary:hover {
-  background: #2563eb;
+  background: #95C674;
   color: white;
   border-color: transparent;
 }
@@ -275,7 +275,7 @@ body {
 
 .feature-card i {
     font-size: 3rem;
-    color: #2563eb;
+    color: #95C674;
     margin-bottom: 1rem;
 }
 
@@ -288,8 +288,8 @@ body {
 /* Testimonials */
 .testimonials {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    color: white;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    color: rgb(0, 0, 0);
 }
 
 .testimonials h2 {
@@ -409,7 +409,7 @@ body {
 .stat-number {
     font-size: 3rem;
     font-weight: bold;
-    color: #2563eb;
+    color: #95C674;
 }
 
 .stat-label {
@@ -438,7 +438,7 @@ body {
 }
 
 .service-icon {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    background: linear-gradient(135deg, #416529, #416529);
     color: white;
     width: 60px;
     height: 60px;
@@ -478,7 +478,7 @@ body {
 .price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2563eb;
+    color: #95C674;
     margin-top: 1rem;
 }
 
@@ -556,7 +556,7 @@ body {
 }
 
 .contact-item i {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    background: linear-gradient(135deg, #95C674, #95C674);
     color: white;
     width: 40px;
     height: 40px;
@@ -607,7 +607,7 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #95C674;
 }
 
 .form-row {
@@ -663,12 +663,12 @@ body {
 
 .radio-option:hover,
 .checkbox-option:hover {
-    border-color: #2563eb;
+    border-color: #95C674;
 }
 
 .radio-option input:checked + span,
 .checkbox-option input:checked + span {
-    color: #2563eb;
+    color: #95C674;
 }
 
 .form-row {
@@ -678,7 +678,7 @@ body {
 }
 
 .quote-result {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    background: linear-gradient(135deg, #416529, #416529);
     color: white;
     padding: 2rem;
     border-radius: 15px;
@@ -713,7 +713,7 @@ body {
 
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: #2563eb;
+    color: #95C674;
 }
 
 .footer-section ul {
@@ -742,7 +742,7 @@ body {
 }
 
 .social-links a {
-    background: #2563eb;
+    background: #416529;
     color: white;
     width: 40px;
     height: 40px;
