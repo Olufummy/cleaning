@@ -41,6 +41,13 @@ body {
     align-items: center;
 }
 
+.logo-text strong {
+  color: #ff3366;     
+  font-size: 1.4em;     
+  font-weight: 700;     
+  font-family: 'Great Vibes', cursive; 
+}
+
 .logo {
     display: flex;
     align-items: center;
