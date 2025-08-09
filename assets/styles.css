@@ -42,7 +42,7 @@ body {
 }
 
 .logo-text strong {
-  color: #ff3366;     
+  color: #416529;     
   font-size: 1.4em;     
   font-weight: 700;     
   font-family: 'Great Vibes', cursive; 
@@ -77,7 +77,7 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #333;
+    color: #33521f;
     font-weight: 500;
     transition: color 0.3s ease;
     cursor: pointer;
@@ -142,7 +142,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #a7c6e6 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #aedb8f 0%, #416529 100%);
   padding: 4rem 1rem;
   display: flex;
   align-items: center;
@@ -162,19 +162,19 @@ body {
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  color: #1e293b;
+  color: #1b360a;
   margin-bottom: 1rem;
   line-height: 1.2;
   padding-inline: 0.5rem;
 }
 
 .hero-title .highlight {
-  color: #95C674; /* blue highlight */
+  color: #ffffff; /* blue highlight */
 }
 
 .hero-subtitle {
   font-size: 1.125rem;
-  color: #475569;
+  color: #fcfcfc;
   margin-bottom: 2rem;
   padding-inline: 0.5rem;
 }
@@ -259,7 +259,8 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #1e293b;
+    color: #33521f;
+    font-weight: 700;
 }
 
 .features-grid {
@@ -272,7 +273,7 @@ body {
     text-align: center;
     padding: 2rem;
     border-radius: 15px;
-    background: #f8fafc;
+    background: #b9ec97;
     transition: transform 0.3s ease;
 }
 
@@ -282,14 +283,14 @@ body {
 
 .feature-card i {
     font-size: 3rem;
-    color: #95C674;
+    color: #33521f;
     margin-bottom: 1rem;
 }
 
 .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #1e293b;
+    color: #ffffff;
 }
 
 /* Testimonials */
@@ -340,18 +341,22 @@ body {
 .about-hero {
     text-align: center;
     padding: 3rem 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #aedb8f 0%, #416529 100%);
 }
 
 .about-hero h1 {
     font-size: 3rem;
-    color: #1e293b;
+    color: #416529;
     margin-bottom: 1rem;
 }
 
 .lead {
     font-size: 1.3rem;
-    color: #64748b;
+    color: #ffffff;
+}
+.leads {
+    font-size: 1.3rem;
+    color: #416529;
 }
 
 .about-content {
@@ -364,7 +369,7 @@ body {
 
 .about-text h2,
 .about-text h3 {
-    color: #1e293b;
+    color: #416529;
     margin-bottom: 1rem;
 }
 
@@ -374,7 +379,7 @@ body {
 
 .about-text p {
     margin-bottom: 1.5rem;
-    color: #64748b;
+    color: #416529;
 }
 
 .values-list {
@@ -386,7 +391,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
-    color: #64748b;
+    color: #416529;
 }
 
 .values-list i {
@@ -645,8 +650,7 @@ body {
 
 .quote-section h3 {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #1e293b;
+    margin-bottom: 2rem;
 }
 
 .radio-group,
@@ -663,7 +667,7 @@ body {
     gap: 0.5rem;
     cursor: pointer;
     padding: 0.5rem 1rem;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #95C674;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
@@ -706,9 +710,10 @@ body {
 
 /* Footer */
 .footer {
-    background: #1e293b;
+    background: #416529;
     color: white;
     padding: 3rem 0 1rem;
+    margin-top: 2rem;
 }
 
 .footer-content {
@@ -732,7 +737,7 @@ body {
 }
 
 .footer-section a {
-    color: #94a3b8;
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
     cursor: pointer;
@@ -765,10 +770,34 @@ body {
 }
 
 .footer-bottom {
-    border-top: 1px solid #334155;
+    border-top: 1px solid #95C674;
     padding-top: 1rem;
     text-align: center;
-    color: #94a3b8;
+    color: #95C674;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    color: var(--white);
 }
 
 /* Responsive Design */
@@ -842,3 +871,184 @@ body {
         flex-direction: column;
     }
 }
+/* Room Selection Styles */
+
+/* Service Type Grid */
+.service-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.service-type-option {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-type-option:hover {
+    border-color: #416529;
+    background-color: rgba(46, 134, 222, 0.05);
+}
+
+.service-type-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-custom {
+    position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+}
+
+.service-type-option input[type="radio"]:checked + .radio-custom {
+    border-color: #416529;
+    background-color: #416529;
+}
+
+.service-type-option input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.service-label {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .service-type-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-type-option {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-type-option {
+        padding: 12px;
+    }
+    
+    .radio-custom {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+    }
+}
+
+.room-selection {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e9ecef;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.room-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.room-info {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.room-name {
+    display: block;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.room-price {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.qty-input {
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    margin: 0 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .room-option {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .room-info {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .quantity-control {
+        align-self: flex-end;
+    }
+}
+

@@ -45,7 +45,7 @@
                        Glitters and Sparkles Professional <span class="highlight">Cleaning</span> Services
                     </h1>
                     <p class="hero-subtitle">
-                        Experience the difference with Glitters and Sparkles Cleaning. We deliver exceptional cleaning services that transform your space into a pristine environment.
+                        Experience the difference with Glitters and Sparkles Cleaning. We deliver exceptional cleaning services that transform your space into a pristine environment leaving it glittering and sparkling.
                     </p>
                     <div class="hero-buttons">
                         <button class="btn btn-primary" data-page="quote">Get Free Quote</button>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="feature-card">
                             <i class="fas fa-leaf"></i>
-                            <h3>Eco-Friendly</h3>
+                            <h3>Eco- <br> Friendly</h3>
                             <p>Safe, green cleaning products for your family and pets</p>
                         </div>
                         <div class="feature-card">
@@ -166,7 +166,7 @@
         <section id="services" class="page">
             <div class="container">
                 <h1>Our Services</h1>
-                <p class="lead">Comprehensive cleaning solutions for every need</p>
+                <p class="leads">Comprehensive cleaning solutions for every need</p>
 
                 <div class="services-grid">
                     <div class="service-card">
@@ -181,7 +181,7 @@
                             <li>Move-in/move-out cleaning</li>
                             <li>Post-construction cleanup</li>
                         </ul>
-                        <div class="price">Starting at £80</div>
+                        <div class="price">Custom Pricing</div>
                     </div>
 
                     <div class="service-card">
@@ -199,7 +199,7 @@
                         <div class="price">Custom Pricing</div>
                     </div>
 
-                    <div class="service-card">
+                    <!-- <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-couch"></i>
                         </div>
@@ -227,7 +227,7 @@
                             <li>High-rise window cleaning</li>
                         </ul>
                         <div class="price">Starting at £60</div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="work-gallery">
@@ -270,7 +270,7 @@
         <section id="contact" class="page">
             <div class="container">
                 <h1>Contact Us</h1>
-                <p class="lead">Get in touch for a free consultation and quote</p>
+                <p class="leads">Get in touch for a free consultation and quote</p>
 
                 <div class="contact-content">
                     <div class="contact-info">
@@ -279,7 +279,7 @@
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>Phone</h4>
-                                <p>(555) 123-4567</p>
+                                <p>+447 (555) 123-4567</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -321,8 +321,6 @@
                                 <option value="">Select Service</option>
                                 <option value="residential">Residential Cleaning</option>
                                 <option value="commercial">Commercial Cleaning</option>
-                                <option value="carpet">Carpet & Upholstery</option>
-                                <option value="windows">Window Cleaning</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
@@ -340,64 +338,306 @@
             <div class="container">
                 <div class="edit" style=" text-align: center;">
                 <h1>Get Your Free Quote</h1>
-                <p class="lead">After submitting your quote request, our team will review your information and contact you within 24 hours with a personalized estimate.</p> </div>
+                <p class="leads">After submitting your quote request, our team will review your information and contact you within 24 hours with a personalized estimate.</p> </div>
+<div class="quote-calculator">
+    <form id="quoteForm">
+        <!-- Service Type Selection -->
+        <div class="form-section">
+            <h3>Choose service type</h3>
+            <div class="service-type-grid">
+                <label class="service-type-option">
+                    <input type="radio" name="serviceType" value="deep-cleaning" required>
+                    <span class="radio-custom"></span>
+                    <span class="service-label">Deep Cleaning</span>
+                </label>
+                <label class="service-type-option">
+                    <input type="radio" name="serviceType" value="regular-cleaning" required>
+                    <span class="radio-custom"></span>
+                    <span class="service-label">Regular Cleaning</span>
+                </label>
+                <label class="service-type-option">
+                    <input type="radio" name="serviceType" value="end-of-tenancy" required>
+                    <span class="radio-custom"></span>
+                    <span class="service-label">End of Tenancy</span>
+                </label>
+                <label class="service-type-option">
+                    <input type="radio" name="serviceType" value="after-builder" required>
+                    <span class="radio-custom"></span>
+                    <span class="service-label">After Builder Clean</span>
+                </label>
+            </div>
+        </div>
+    </form>
+</div>
 
-                <div class="quote-calculator">
-                    <form id="quoteForm">
-                        <div class="quote-section">
-                            <h3>Service Type</h3>
-                            <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" name="serviceType" value="residential" required>
-                                    <span>Residential</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="serviceType" value="commercial" required>
-                                    <span>Commercial</span>
-                                </label>
+                <!-- Room Selection Based on Service Type -->
+                <div class="form-section room-selection" id="deepCleaningRooms">
+                    <h3>Deep Cleaning - Select Rooms</h3>
+                    <div class="room-grid">
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Main Rooms (Living, Dining, etc)</span>
+                                <span class="room-price">£23 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="deep-main-rooms" value="0" min="0" class="qty-input" data-price="23">
+                                <button type="button" class="qty-btn plus">+</button>
                             </div>
                         </div>
-
-                        <div class="quote-section">
-                            <h3>Property Size</h3>
-                            <select name="propertySize" required style=" padding: 10px; border-radius: 5px;">
-                                <option value="">Select Size</option>
-                                <option value="small">Small (1-2 bedrooms ) </option>
-                                <option value="medium">Medium (3-4 bedrooms )</option>
-                                <option value="large">Large (5+ bedrooms )</option>
-                            </select>
-                        </div>
-
-                        <div class="quote-section">
-                            <h3>Cleaning Frequency</h3>
-                            <select name="frequency" required style=" padding: 13px; border-radius: 5px;">
-                                <option value="">Select Frequency</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="biweekly">Bi-weekly</option>
-                                <option value="monthly">Monthly</option>
-                                <option value="onetime">One-time</option>
-                            </select>
-                        </div>
-
-                        <div class="quote-section">
-                            <h3>Additional Services</h3>
-                            <div class="checkbox-group">
-                                <label class="checkbox-option">
-                                    <input type="checkbox" name="extras" value="windows">
-                                    <span>Window Cleaning (+£30)</span>
-                                </label>
-                                <label class="checkbox-option">
-                                    <input type="checkbox" name="extras" value="carpet">
-                                    <span>Carpet Cleaning (+£50)</span>
-                                </label>
-                                <label class="checkbox-option">
-                                    <input type="checkbox" name="extras" value="deep">
-                                    <span>Deep Cleaning (+£40)</span>
-                                </label>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Bathrooms/Shower Rooms</span>
+                                <span class="room-price">£33 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="deep-bathrooms" value="0" min="0" class="qty-input" data-price="33">
+                                <button type="button" class="qty-btn plus">+</button>
                             </div>
                         </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Bedrooms/Box Rooms</span>
+                                <span class="room-price">£22 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="deep-bedrooms" value="0" min="0" class="qty-input" data-price="22">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Kitchen</span>
+                                <span class="room-price">£76 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="deep-kitchen" value="0" min="0" class="qty-input" data-price="76">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Toilet (No bath or Shower)</span>
+                                <span class="room-price">£22 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="deep-toilet" value="0" min="0" class="qty-input" data-price="22">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Utility Rooms</span>
+                                <span class="room-price">£13 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="deep-utility" value="0" min="0" class="qty-input" data-price="13">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                      <div class="quote-section">
+                <div class="form-section room-selection" id="regularCleaningRooms" style="display:none;">
+                    <h3>Regular Cleaning - Select Property Size</h3>
+                    <div class="room-grid">
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">1 Bedroom Home</span>
+                                <span class="room-price">£52</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="regular-1bed" value="0" min="0" max="1" class="qty-input" data-price="52">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">2 Bedroom Home</span>
+                                <span class="room-price">£59</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="regular-2bed" value="0" min="0" max="1" class="qty-input" data-price="59">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">3 Bedroom Home</span>
+                                <span class="room-price">£62</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="regular-3bed" value="0" min="0" max="1" class="qty-input" data-price="62">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">4 Bedroom Home</span>
+                                <span class="room-price">£73</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="regular-4bed" value="0" min="0" max="1" class="qty-input" data-price="73">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">5 Bedroom Home</span>
+                                <span class="room-price">£84</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="regular-5bed" value="0" min="0" max="1" class="qty-input" data-price="84">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">6 Bedroom Home</span>
+                                <span class="room-price">£94</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="regular-6bed" value="0" min="0" max="1" class="qty-input" data-price="94">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section room-selection" id="endTenancyRooms" style="display:none;">
+                    <h3>End of Tenancy - Select Rooms</h3>
+                    <div class="room-grid">
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Main Rooms (Living, Dining, etc)</span>
+                                <span class="room-price">£18.00 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="tenancy-main-rooms" value="0" min="0" class="qty-input" data-price="18">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Bathrooms/Shower Rooms</span>
+                                <span class="room-price">£27.00 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="tenancy-bathrooms" value="0" min="0" class="qty-input" data-price="27">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Bedrooms/Box Rooms</span>
+                                <span class="room-price">£15.50 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="tenancy-bedrooms" value="0" min="0" class="qty-input" data-price="15.5">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Kitchen</span>
+                                <span class="room-price">£67.00 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="tenancy-kitchen" value="0" min="0" class="qty-input" data-price="67">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Toilet (No bath or Shower)</span>
+                                <span class="room-price">£16.50 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="tenancy-toilet" value="0" min="0" class="qty-input" data-price="16.5">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Utility Rooms</span>
+                                <span class="room-price">£12.00 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="tenancy-utility" value="0" min="0" class="qty-input" data-price="12">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section room-selection" id="afterBuilderRooms" style="display:none;">
+                    <h3>After Builder Clean - Select Rooms</h3>
+                    <div class="room-grid">
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Rooms (Living, Bed, Dining, etc)</span>
+                                <span class="room-price">£28 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="builder-rooms" value="0" min="0" class="qty-input" data-price="28">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Bathrooms and Shower</span>
+                                <span class="room-price">£37 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="builder-bathrooms" value="0" min="0" class="qty-input" data-price="37">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Kitchen</span>
+                                <span class="room-price">£95 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="builder-kitchen" value="0" min="0" class="qty-input" data-price="95">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="room-option">
+                            <div class="room-info">
+                                <span class="room-name">Toilets and WC</span>
+                                <span class="room-price">£28 per unit</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" name="builder-toilets" value="0" min="0" class="qty-input" data-price="28">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <div class="quote-section">
                         <h3>Preferred Cleaning Date</h3>
                         <input type="date" name="cleaningDate" required placeholder="Select a date" style="padding: 13px; border-radius: 5px;" >
                         </div>
@@ -410,20 +650,30 @@
                         </div> <br>
                         <input type="tel" name="quotePhone" placeholder="Your Phone Number" style=" padding: 13px; border-radius: 5px;">
                         </div>
+                        <div class="quote-section">
+                            <h3>Additional Cleaning Requests</h3>
+                            <textarea name="extraServices" placeholder="Please describe any additional cleaning services or special requests..." rows="6" style="width: 100%; padding: 13px; border-radius: 5px; resize: vertical;"></textarea>
+                        </div>
 
-
-                        <div class="quote-result" id="quoteResult">
+                <!-- Estimated Price -->
+               <div class="quote-result" id="quoteResult">
                             <h3>Estimated Cost</h3>
                             <div class="price-display">£<span id="estimatedPrice">0</span></div>
                             <p class="price-note">*Final price may vary based on specific requirements</p>
                         </div>
 
+                        <!-- Submit Button -->
                         <button type="submit" class="btn btn-primary">Request Official Quote</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+            </form>
+        </div>
+    </div>
+</section>
+
     </main>
+
+     <a href="https://wa.me/2348067616620" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Footer -->
     <footer class="footer">
@@ -449,11 +699,9 @@
                     <ul>
                         <li><a href="#">Residential Cleaning</a></li>
                         <li><a href="#">Commercial Cleaning</a></li>
-                        <li><a href="#">Carpet Cleaning</a></li>
-                        <li><a href="#">Window Cleaning</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <!-- <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="#" data-page="about">About Us</a></li>
@@ -461,7 +709,7 @@
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Reviews</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <p><i class="fas fa-phone"></i> +447 (555) 123-4567</p>

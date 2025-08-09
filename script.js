@@ -83,75 +83,156 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Quote calculator
-    const quoteForm = document.getElementById('quoteForm');
-    const estimatedPriceElement = document.getElementById('estimatedPrice');
-
-    function calculateQuote() {
-        const serviceType = document.querySelector('input[name="serviceType"]:checked')?.value;
-        const propertySize = document.querySelector('select[name="propertySize"]').value;
-        const frequency = document.querySelector('select[name="frequency"]').value;
-        const extras = document.querySelectorAll('input[name="extras"]:checked');
-
-        let basePrice = 0;
-
-        // Base pricing
-        if (serviceType === 'residential') {
-            switch (propertySize) {
-                case 'small': basePrice = 80; break;
-                case 'medium': basePrice = 120; break;
-                case 'large': basePrice = 180; break;
-            }
-        } else if (serviceType === 'commercial') {
-            switch (propertySize) {
-                case 'small': basePrice = 150; break;
-                case 'medium': basePrice = 250; break;
-                case 'large': basePrice = 400; break;
-            }
-        }
-
-        // Frequency discounts
-        switch (frequency) {
-            case 'weekly': basePrice *= 0.9; break;
-            case 'biweekly': basePrice *= 0.95; break;
-            case 'monthly': basePrice *= 1; break;
-            case 'onetime': basePrice *= 1.2; break;
-        }
-
-        // Add extras
-        let extrasCost = 0;
-        extras.forEach(extra => {
-            switch (extra.value) {
-                case 'windows': extrasCost += 30; break;
-                case 'carpet': extrasCost += 50; break;
-                case 'deep': extrasCost += 40; break;
-            }
+// Show/Hide Room Options Based on Service Type
+document.querySelectorAll('input[name="serviceType"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        // Hide all room sections first
+        document.querySelectorAll('.room-selection').forEach(section => {
+            section.style.display = 'none';
         });
-
-        const totalPrice = Math.round(basePrice + extrasCost);
-        if (estimatedPriceElement) {
-            estimatedPriceElement.textContent = totalPrice;
+        
+        // Show the selected room section
+        const serviceType = this.value;
+        if (serviceType === 'deep-cleaning') {
+            document.getElementById('deepCleaningRooms').style.display = 'block';
+        } 
+        else if (serviceType === 'regular-cleaning') {
+            document.getElementById('regularCleaningRooms').style.display = 'block';
         }
+        else if (serviceType === 'end-of-tenancy') {
+            document.getElementById('endTenancyRooms').style.display = 'block';
+        }
+        else if (serviceType === 'after-builder') {
+            document.getElementById('afterBuilderRooms').style.display = 'block';
+        }
+        
+        // Reset all quantities when service type changes
+        document.querySelectorAll('.qty-input').forEach(input => {
+            input.value = 0;
+        });
+        
+        calculateEstimate();
+    });
+});
+
+// Quantity Controls Functionality
+document.querySelectorAll('.qty-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.qty-input');
+        let value = parseInt(input.value);
+        
+        if (this.classList.contains('minus')) {
+            value = isNaN(value) || value < 1 ? 0 : value - 1;
+        } else {
+            value = isNaN(value) ? 1 : value + 1;
+        }
+        
+        // For regular cleaning, ensure only one property size can be selected
+        if (input.name.includes('regular-') && value > 1) value = 1;
+        
+        input.value = value;
+        calculateEstimate();
+    });
+});
+
+// Input Change Handler
+document.querySelectorAll('.qty-input').forEach(input => {
+    input.addEventListener('change', function() {
+        if (this.value < 0 || isNaN(this.value)) this.value = 0;
+        
+        // For regular cleaning, ensure only one property size can be selected
+        if (this.name.includes('regular-') && this.value > 0) {
+            document.querySelectorAll('.room-selection.active input[name^="regular-"]').forEach(otherInput => {
+                if (otherInput !== this) otherInput.value = 0;
+            });
+        }
+        
+        calculateEstimate();
+    });
+});
+
+// Calculate Estimate Function
+function calculateEstimate() {
+    let total = 0;
+    const serviceType = document.querySelector('input[name="serviceType"]:checked')?.value;
+    
+    if (!serviceType) {
+        document.getElementById('estimatedPrice').textContent = '0.00';
+        return;
     }
-
-    // Add event listeners for quote calculation
-    if (quoteForm) {
-        const quoteInputs = quoteForm.querySelectorAll('input, select');
-        quoteInputs.forEach(input => {
-            input.addEventListener('change', calculateQuote);
-        });
-
-        // Quote form submission
-        quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simulate quote request
-            alert(`Thank you for your quote request! Your estimated cost is $${estimatedPriceElement.textContent}. We will send you an official quote within 2 hours.`);
+    
+    // Calculate based on selected service type
+    if (serviceType === 'deep-cleaning') {
+        document.querySelectorAll('#deepCleaningRooms .qty-input').forEach(input => {
+            const quantity = parseInt(input.value) || 0;
+            const price = parseFloat(input.dataset.price);
+            total += quantity * price;
         });
     }
+    else if (serviceType === 'regular-cleaning') {
+        document.querySelectorAll('#regularCleaningRooms .qty-input').forEach(input => {
+            const quantity = parseInt(input.value) || 0;
+            const price = parseFloat(input.dataset.price);
+            total += quantity * price;
+        });
+    }
+    else if (serviceType === 'end-of-tenancy') {
+        document.querySelectorAll('#endTenancyRooms .qty-input').forEach(input => {
+            const quantity = parseInt(input.value) || 0;
+            const price = parseFloat(input.dataset.price);
+            total += quantity * price;
+        });
+    }
+    else if (serviceType === 'after-builder') {
+        document.querySelectorAll('#afterBuilderRooms .qty-input').forEach(input => {
+            const quantity = parseInt(input.value) || 0;
+            const price = parseFloat(input.dataset.price);
+            total += quantity * price;
+        });
+    }
+    
+    // Update the displayed price with 2 decimal places
+    document.getElementById('estimatedPrice').textContent = total.toFixed(2);
+}
+
+// Form Submission
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    // Calculate total price
+    calculateEstimate();
+    const totalPrice = parseFloat(document.getElementById('estimatedPrice').textContent);
+    
+    // Here you would typically send the data to your server
+    // For this example, we'll just show a confirmation with the details
+    let serviceDetails = '';
+    const serviceType = data.serviceType;
+    
+    if (serviceType === 'deep-cleaning') {
+        serviceDetails = 'Deep Cleaning Service\n';
+        if (data['deep-main-rooms'] > 0) serviceDetails += `Main Rooms: ${data['deep-main-rooms']} x £23\n`;
+        if (data['deep-bathrooms'] > 0) serviceDetails += `Bathrooms: ${data['deep-bathrooms']} x £33\n`;
+        // Add all other room types...
+    }
+    // Add similar blocks for other service types...
+    
+    alert(`Thank you for your quote request!\n\nService: ${serviceType}\n${serviceDetails}\nTotal Estimate: £${totalPrice.toFixed(2)}\n\nWe'll contact you shortly to confirm your booking.`);
+    
+    // Reset form
+    this.reset();
+    document.getElementById('estimatedPrice').textContent = '0.00';
+});
+
+// Initialize by hiding all room sections except the first one
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.room-selection').forEach((section, index) => {
+        if (index !== 0) section.style.display = 'none';
+    });
+});
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -242,7 +323,7 @@ function validateForm(form) {
 
     requiredFields.forEach(field => {
         if (!field.value.trim()) {
-            field.style.borderColor = '#ef4444';
+            field.style.borderColor = '#416529';
             isValid = false;
         } else {
             field.style.borderColor = '#e2e8f0';
@@ -250,7 +331,7 @@ function validateForm(form) {
 
         // Email validation
         if (field.type === 'email' && field.value && !validateEmail(field.value)) {
-            field.style.borderColor = '#ef4444';
+            field.style.borderColor = '#416529';
             isValid = false;
         }
     });
@@ -264,7 +345,7 @@ document.addEventListener('input', function(e) {
         if (e.target.value.trim()) {
             e.target.style.borderColor = '#10b981';
         } else {
-            e.target.style.borderColor = '#ef4444';
+            e.target.style.borderColor = '#416529';
         }
     }
 
@@ -272,7 +353,7 @@ document.addEventListener('input', function(e) {
         if (validateEmail(e.target.value)) {
             e.target.style.borderColor = '#10b981';
         } else if (e.target.value) {
-            e.target.style.borderColor = '#ef4444';
+            e.target.style.borderColor = '#416529';
         }
     }
 });
