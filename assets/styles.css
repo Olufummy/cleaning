@@ -1052,3 +1052,28 @@ body {
     }
 }
 
+.qty-btn {
+    background-color: #416529;
+    color: white;
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 14px; 
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.qty-btn:hover {
+    background-color: #a6f06d; 
+    color: #ffffff;
+}
+
+.qty-input {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
