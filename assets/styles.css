@@ -1077,3 +1077,72 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
+/* Responsive grid layout */
+.extras-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .extras-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Box style */
+.service-type-option {
+  background: #fff;
+  border: 2px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.service-type-option:hover {
+  border-color: #416529;
+}
+
+/* Hide native checkbox */
+.service-type-option input[type="checkbox"] {
+  display: none;
+}
+
+/* Custom checkbox design */
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+.service-type-option input[type="checkbox"]:checked + .radio-custom {
+  background-color: #416529;
+  border-color: #416529;
+}
+
+.service-type-option input[type="checkbox"]:checked + .radio-custom::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Text style */
+.service-label {
+  font-size: 14px;
+  color: #333;
+}
+

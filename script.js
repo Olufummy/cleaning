@@ -19,31 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.remove('active');
     }
 
-
-        // Page navigation
-    function showPage(pageId) {
-        pages.forEach(page => {
-            page.classList.remove('active');
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-
-        const targetPage = document.getElementById(pageId);
-        if (targetPage) {
-            targetPage.classList.add('active');
-        }
-
-        const activeLink = document.querySelector(`[data-page="${pageId}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
-
-        // Close mobile menu
-        navMenu.classList.remove('active');
-    }
-
     // Add click event listeners to navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -55,31 +30,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add click event listeners to buttons with data-page attribute
     document.addEventListener('click', function(e) {
-        if (e.target.hasAttribute('data-page')) {
-            e.preventDefault();
-            const pageId = e.target.getAttribute('data-page');
-            showPage(pageId);
+    if (e.target.matches('[data-page]')) {
+        e.preventDefault();
+        const pageId = e.target.getAttribute('data-page');
+        showPage(pageId);
+        
+        if (pageId === 'quote') {
+            setTimeout(() => {
+                document.getElementById('quoteForm').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 100);
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    });
+    }
+});
 
     // Mobile menu toggle
     hamburger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
     });
-
-    // Navigation event listeners
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const pageId = this.getAttribute('data-page');
-            if (pageId) showPage(pageId);
-        });
-    });
-
-    // Mobile menu toggle
-    hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
 
     // Testimonials slider
     const testimonials = document.querySelectorAll('.testimonial');
@@ -139,8 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 value++;
             }
-            
-            // For regular cleaning, ensure only one property size can be selected
             if (input.name.includes('regular-') && value > 1) value = 1;
             
             input.value = value;
@@ -165,37 +135,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Price calculation
     function calculateEstimate() {
-        let total = 0;
-        const serviceType = document.querySelector('input[name="serviceType"]:checked')?.value;
-        
-        if (!serviceType) {
-            document.getElementById('estimatedPrice').textContent = '0.00';
-            return;
-        }
-        
-        if (serviceType === 'deep-cleaning') {
-            document.querySelectorAll('#deepCleaningRooms .qty-input').forEach(input => {
-                total += (parseInt(input.value) || 0) * parseFloat(input.dataset.price);
-            });
-        }
-        else if (serviceType === 'regular-cleaning') {
-            document.querySelectorAll('#regularCleaningRooms .qty-input').forEach(input => {
-                total += (parseInt(input.value) || 0) * parseFloat(input.dataset.price);
-            });
-        }
-        else if (serviceType === 'end-of-tenancy') {
-            document.querySelectorAll('#endTenancyRooms .qty-input').forEach(input => {
-                total += (parseInt(input.value) || 0) * parseFloat(input.dataset.price);
-            });
-        }
-        else if (serviceType === 'after-builder') {
-            document.querySelectorAll('#afterBuilderRooms .qty-input').forEach(input => {
-                total += (parseInt(input.value) || 0) * parseFloat(input.dataset.price);
-            });
-        }
-        
-        document.getElementById('estimatedPrice').textContent = total.toFixed(2);
+    let total = 0;
+    const serviceType = document.querySelector('input[name="serviceType"]:checked')?.value;
+    
+    if (!serviceType) {
+        document.getElementById('estimatedPrice').textContent = '0.00';
+        return;
     }
+    
+    if (serviceType === 'deep-cleaning') {
+        document.querySelectorAll('#deepCleaningRooms .qty-input').forEach(input => {
+            total += (parseInt(input.value) || 0) * parseFloat(input.dataset.price);
+        });
+    }
+    else if (serviceType === 'regular-cleaning') {
+        document.querySelectorAll('#regularCleaningRooms .qty-input').forEach(input => {
+            total += (parseInt(input.value) || 0) * parseFloat(input.dataset.price);
+        });
+    }
+    else if (serviceType === 'end-of-tenancy') {
+        document.querySelectorAll('#endTenancyRooms .qty-input').forEach(input => {
+            total += (parseInt(input.value) || 0) * parseFloat(input.dataset.price);
+        });
+    }
+    else if (serviceType === 'after-builder') {
+        const calculateTiered = (qty, base, extra) => qty <= 0 ? 0 : base + (Math.max(0, qty - 1) * extra);
+        
+        const roomsQty = parseInt(document.querySelector('input[name="builder-rooms"]').value) || 0;
+        const bathroomsQty = parseInt(document.querySelector('input[name="builder-bathrooms"]').value) || 0;
+        const kitchenQty = parseInt(document.querySelector('input[name="builder-kitchen"]').value) || 0;
+        const toiletsQty = parseInt(document.querySelector('input[name="builder-toilets"]').value) || 0;
+        
+        total += calculateTiered(roomsQty, 28, 66);
+        total += calculateTiered(bathroomsQty, 37, 57);
+        total += calculateTiered(kitchenQty, 95, 96);
+        total += calculateTiered(toiletsQty, 28, 50);
+    }
+
+    // Add extras to the total
+    let extrasTotal = 0;
+    let extrasList = [];
+    document.querySelectorAll('#extraServices input[name="extras"]:checked').forEach(extra => {
+        const extraPrice = parseFloat(extra.dataset.price) || 0;
+        extrasTotal += extraPrice;
+        extrasList.push({
+            name: extra.value,
+            price: extraPrice
+        });
+    });
+    total += extrasTotal;
+
+    // Log extras to console
+    if (extrasList.length > 0) {
+        console.log("Selected Extras:");
+        extrasList.forEach(extra => {
+            console.log(`${extra.name}: £${extra.price.toFixed(2)}`);
+        });
+        console.log(`Extras Total: £${extrasTotal.toFixed(2)}`);
+    }
+
+    document.getElementById('estimatedPrice').textContent = total.toFixed(2);
+}
 
     // Quote form submission
     const quoteForm = document.getElementById('quoteForm');
@@ -245,43 +245,85 @@ document.addEventListener('DOMContentLoaded', function() {
                 ]);
             }
             else if (serviceType === 'after-builder') {
-                serviceDetails = buildServiceDetails(data, [
-                    { field: 'builder-rooms', label: 'Rooms', price: 28 },
-                    { field: 'builder-bathrooms', label: 'Bathrooms', price: 37 },
-                    { field: 'builder-kitchen', label: 'Kitchen', price: 95 },
-                    { field: 'builder-toilets', label: 'Toilets', price: 28 }
-                ]);
+    // Calculate prices with tiered pricing for all builder services
+    const calculateTieredPrice = (qty, basePrice, extraPrice) => {
+        if (qty === 0) return 0;
+        if (qty === 1) return basePrice;
+        return basePrice + (extraPrice * (qty - 1));
+    };
+
+    const roomsQty = parseInt(data['builder-rooms']) || 0;
+    const bathroomsQty = parseInt(data['builder-bathrooms']) || 0;
+    const kitchenQty = parseInt(data['builder-kitchen']) || 0;
+    const toiletsQty = parseInt(data['builder-toilets']) || 0;
+
+    serviceDetails = buildServiceDetails(data, [
+        { 
+            field: 'builder-rooms', 
+            label: 'Rooms', 
+            price: roomsQty > 1 ? '28 (first) + 66 (additional)' : '28',
+            total: calculateTieredPrice(roomsQty, 28, 66)
+        },
+        { 
+            field: 'builder-bathrooms', 
+            label: 'Bathrooms', 
+            price: bathroomsQty > 1 ? '37 (first) + 57 (additional)' : '37',
+            total: calculateTieredPrice(bathroomsQty, 37, 57)
+        },
+        { 
+            field: 'builder-kitchen', 
+            label: 'Kitchen', 
+            price: kitchenQty > 1 ? '95 (first) + 96 (additional)' : '95',
+            total: calculateTieredPrice(kitchenQty, 95, 96)
+        },
+        { 
+            field: 'builder-toilets', 
+            label: 'Toilets', 
+            price: toiletsQty > 1 ? '28 (first) + 50 (additional)' : '28',
+            total: calculateTieredPrice(toiletsQty, 28, 50)
+        }
+    ]);
+}
+
+            let contactInfo = "\n=== Contact Information ===";
+            contactInfo += `\nName: ${data.name || 'Not provided'}`;
+            contactInfo += `\nEmail: ${data.email || 'Not provided'}`;
+            contactInfo += `\nPhone: ${data.phone || 'Not provided'}`;
+            contactInfo += `\nPreferred Date: ${data.preferredDate ? new Date(data.preferredDate).toLocaleDateString('en-GB', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            }) : 'Not provided'}`;
+            contactInfo += `\nAdditional Information: ${data.additionalInfo || 'Not provided'}`;
+
+            // Get extras information
+            let extrasSelected = '';
+            const extras = document.querySelectorAll('#extraServices input[name="extras"]:checked');
+            extras.forEach(extra => {
+                extrasSelected += `\n${extra.value}: £${parseFloat(extra.dataset.price).toFixed(2)}`;
+            });
+
+            if (extrasSelected) {
+                serviceDetails += `\n\n=== Extras ===${extrasSelected}`;
             }
 
+            alert(
+                `Thank you for your quote request!` +
+                `\n\n=== Service Details ===\n${serviceDetails}` +
+                `${contactInfo}` +
+                `\n\nTotal Estimate: £${totalPrice.toFixed(2)}` +
+                `\n\nWe'll contact you shortly to confirm your booking.`
+            );
 
-        let contactInfo = "\n=== Contact Information ===";
-                        contactInfo += `\nName: ${data.name || 'Not provided'}`;
-                        contactInfo += `\nEmail: ${data.email || 'Not provided'}`;
-                        contactInfo += `\nPhone: ${data.phone || 'Not provided'}`;
-                        contactInfo += `\nPreferred Date: ${data.preferredDate ? new Date(data.preferredDate).toLocaleDateString('en-GB', { 
-                            weekday: 'long', 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        }) : 'Not provided'}`;
-                        contactInfo += `\nAdditional Information: ${data.additionalInfo || 'Not provided'}`;
-
-                        alert(
-                            `Thank you for your quote request!` +
-                            `\n\n=== Service Details ===\n${serviceDetails}` +
-                            `${contactInfo}` +
-                            `\n\nTotal Estimate: £${totalPrice.toFixed(2)}` +
-                            `\n\nWe'll contact you shortly to confirm your booking.`
-                        );
-
-                        // Also log to console
-                        console.log(
-                            `=== Quote Request Details ===` +
-                            `\n\n=== Service Details ===\n${serviceDetails}` +
-                            `${contactInfo}` +
-                            `\n\nTotal Estimate: £${totalPrice.toFixed(2)}`
-                        );
-
+            // Console log details
+            console.log(
+                `=== Quote Request ===` +
+                `\n\n=== Service Details ===\n${serviceDetails}` +
+                `${contactInfo}` +
+                `\n\n=== Extras ===${extrasSelected}` +
+                `\n\nTotal Estimate: £${totalPrice.toFixed(2)}`
+            );
              
             // Reset form
             this.reset();
@@ -307,6 +349,9 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.display = index === 0 ? 'block' : 'none';
     });
     showPage('home');
+
+    // Add event listeners for extras to trigger calculation when changed
+    document.querySelectorAll('#extraServices input[name="extras"]').forEach(extra => {
+        extra.addEventListener('change', calculateEstimate);
+    });
 });
-// script.js
-// This script handles the navigation, testimonials, contact form, service selection, and quote calculation functionalities
