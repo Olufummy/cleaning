@@ -337,7 +337,8 @@
                         <div class="form-group">
                             <textarea id="message" name="message" placeholder="Tell us about your cleaning needs" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" id="submitContact">Send Message</button>
+                        <div id="contactMessage" style="display:none; margin-top: 15px; padding: 10px; border-radius: 5px;"></div>
                     </form>
                 </div>
             </div>
@@ -739,8 +740,10 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" class="btn btn-primary">Request Official Quote</button>
-            </form>
+                        <button type="submit" class="btn btn-primary" id="submitQuote">Request Official Quote</button>
+                             <div id="quoteMessage" style="display:none; margin-top: 15px; padding: 10px; border-radius: 5px;"></div>
+                    </form>
+        
             <div class="quote-info"> <br>
                 <h3>How It Works</h3>
                 <p>1. Select your service type and rooms.</p>
@@ -808,5 +811,111 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+// Contact form handling
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const submitBtn = document.getElementById('submitContact');
+    const messageDiv = document.getElementById('contactMessage');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    messageDiv.style.display = 'none';
+    
+    // Collect form data
+    const formData = new FormData(this);
+    
+    // Send AJAX request
+    fetch('process_contact.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        messageDiv.style.display = 'block';
+        if (data.status === 'success') {
+            messageDiv.innerHTML = data.message;
+            messageDiv.style.backgroundColor = '#d4edda';
+            messageDiv.style.color = '#155724';
+            messageDiv.style.border = '1px solid #c3e6cb';
+            // Reset form
+            document.getElementById('contactForm').reset();
+        } else {
+            messageDiv.innerHTML = data.message;
+            messageDiv.style.backgroundColor = '#f8d7da';
+            messageDiv.style.color = '#721c24';
+            messageDiv.style.border = '1px solid #f5c6cb';
+        }
+    })
+    .catch(error => {
+        messageDiv.style.display = 'block';
+        messageDiv.innerHTML = 'Sorry, there was an error sending your message. Please try again or call us directly.';
+        messageDiv.style.backgroundColor = '#f8d7da';
+        messageDiv.style.color = '#721c24';
+        messageDiv.style.border = '1px solid #f5c6cb';
+    })
+    .finally(() => {
+        // Restore button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
+});
+
+// Quote form handling
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const submitBtn = document.getElementById('submitQuote');
+    const messageDiv = document.getElementById('quoteMessage');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+    messageDiv.style.display = 'none';
+    
+    // Collect form data
+    const formData = new FormData(this);
+    
+    // Send AJAX request
+    fetch('process_quote.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        messageDiv.style.display = 'block';
+        if (data.status === 'success') {
+            messageDiv.innerHTML = data.message;
+            messageDiv.style.backgroundColor = '#d4edda';
+            messageDiv.style.color = '#155724';
+            messageDiv.style.border = '1px solid #c3e6cb';
+            // Reset form
+            document.getElementById('quoteForm').reset();
+            document.getElementById('estimatedPrice').textContent = '0';
+        } else {
+            messageDiv.innerHTML = data.message;
+            messageDiv.style.backgroundColor = '#f8d7da';
+            messageDiv.style.color = '#721c24';
+            messageDiv.style.border = '1px solid #f5c6cb';
+        }
+    })
+    .catch(error => {
+        messageDiv.style.display = 'block';
+        messageDiv.innerHTML = 'Sorry, there was an error submitting your request. Please try again or call us directly.';
+        messageDiv.style.backgroundColor = '#f8d7da';
+        messageDiv.style.color = '#721c24';
+        messageDiv.style.border = '1px solid #f5c6cb';
+    })
+    .finally(() => {
+        // Restore button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
+});
+</script>
+
 </body>
 </html>
