@@ -71,7 +71,7 @@ body {
 /* Hide text on mobile */
 @media (max-width: 768px) {
   .logo-text {
-    display: none;
+    font-size: 20px;
   }
 }
 
@@ -156,6 +156,12 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 600px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    border-radius: 100px;
+  }
 }
 
 .hero-content {
@@ -265,7 +271,7 @@ body {
 
 .features h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 3rem;
     color: #33521f;
     font-weight: 700;
@@ -275,6 +281,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    border-radius: 20px;
 }
 
 .feature-card {
@@ -310,7 +317,7 @@ body {
 
 .testimonials h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 3rem;
 }
 
