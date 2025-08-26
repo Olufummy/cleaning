@@ -49,24 +49,32 @@ body {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #95C674;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #95C674;
 }
 
 .logo-icon {
-    background: linear-gradient(135deg, #416529, #416529);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: linear-gradient(135deg, #416529, #416529);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Hide text on mobile */
+@media (max-width: 768px) {
+  .logo-text {
+    display: none;
+  }
+}
+
 
 .nav-menu {
     display: flex;
@@ -342,13 +350,24 @@ body {
     text-align: center;
     padding: 3rem 0;
     background: linear-gradient(135deg, #aedb8f 0%, #416529 100%);
+    border-radius: 20px;
 }
 
+
 .about-hero h1 {
-    font-size: 3rem;
+    font-size: 1.5rem;
     color: #416529;
-    margin-bottom: 1rem;
 }
+
+.about-image img {
+    width: 50px;          /* fills parent container */
+    height: 500px;         /* keeps aspect ratio */
+    max-width: 600px;     /* prevents it from being too large on big screens */
+    border-radius: 10px;  /* optional styling */
+    display: block;
+    margin: 0 auto;       /* centers the image */
+}
+
 
 .lead {
     font-size: 1.3rem;
@@ -710,12 +729,31 @@ body {
 
 /* Footer */
 .footer {
+    position: relative;
     background: #416529;
     color: white;
     padding: 3rem 0 1rem;
     margin-top: 2rem;
+    overflow: hidden;
 }
 
+.footer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    filter: blur(8px);
+    z-index: 0;
+}
+
+.footer-content,
+.footer-bottom {
+    position: relative;
+    z-index: 1;
+}
 .footer-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
