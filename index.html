@@ -1,649 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glitters and Sparkles</title>
-    <link rel="stylesheet" href="/assets/styles.css">
-    <link rel="icon" type="image/png" href="assets/img/logo.jpg">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c2f">
+  <meta name="description" content="Glitters & Sparkles provides dependable home, deep, end-of-tenancy and after-build cleaning across Glasgow.">
+  <meta property="og:title" content="Glitters & Sparkles — Glasgow cleaning that feels effortless">
+  <meta property="og:description" content="Thoughtful cleaning for homes, tenancies and freshly finished spaces across Glasgow.">
+  <meta property="og:type" content="website">
+  <title>Glitters & Sparkles — Glasgow cleaning that feels effortless</title>
+  <link rel="icon" href="assets/img/logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container nav-container">
-                <div class="logo">
-                    <a href="#" onclick="showPage('home'); return false;" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
-                        <div class="logo-icon" style="margin-right: 8px;">
-                            <img src="assets/img/logo.jpg" alt="Glitters and Sparkles Logo" style="height: 40px; width: auto; border-radius: 10px;">
-                        </div>
-                        <span class="logo-text">Glitters and <strong>Sparkles</strong></span>
-                    </a>
-                </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-                <ul class="nav-menu">
-                    <li><a href="#" class="nav-link active" onclick="showPage('home'); return false;">Home</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('shop'); return false;">Shop</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('about'); return false;">About</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('contact'); return false;">Contact</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('cart'); return false;">
-                        <div class="cart-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </div>
-                    </a></li>
-                </ul>
-                
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header class="site-header" id="top">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Glitters and Sparkles home"><img src="assets/img/logo.jpg" alt="" width="64" height="48"><span>Glitters <i>&</i> Sparkles</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span class="sr-only">Open menu</span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation"><a href="#services">Services</a><a href="#difference">Why us</a><a href="#process">How it works</a><a href="#contact">Contact</a><a class="nav-call" href="tel:+4477836202627">Call +44 7783 620 2627</a><a class="nav-cta" href="#quote">Get a quote <span aria-hidden="true">↗</span></a></nav>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Home Page -->
-        <section id="home" class="page active">
-            <div class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <div class="hero-text">
-                            <h1 class="hero-title">
-                                GLITTERS AND SPARKLES <span class="highlight">BEAUTY</span> 
-                            </h1>
-                            <p class="hero-subtitle">
-                                Discover our Olive Essentials product range made to enhance your natural beauty and everyday wellness. Our cosmetics and aromatherapy products are crafted with gentle, plant-based ingredients that care for your skin and lift your mood.
-                            </p>
-                            <div class="hero-buttons">
-                                <button class="btn btn-primary" onclick="showPage('shop')">Shop Now</button>
-                                <button class="btn btn-secondary" onclick="showPage('about')">Learn More</button>
-                            </div>
-                        </div>
-                        <div class="hero-image">
-                            <img src="assets/img/olive.jpg" alt="Natural Beauty Products">
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="assets/img/hero-cleaning.png" alt="Freshly cleaned contemporary Glasgow living room">
+      <div class="hero-wash"></div>
+      <div class="shell hero-content">
+        <p class="eyebrow reveal">Professional cleaning across Glasgow</p>
+        <h1 id="hero-title" class="reveal">Come home to <em>properly clean.</em></h1>
+        <p class="hero-copy reveal">Reliable people, thoughtful details and a refreshingly simple service—from regular home care to deep cleans and moving day.</p>
+        <div class="hero-actions reveal"><a class="button button-dark" href="#quote">Build your quote <span aria-hidden="true">↗</span></a><a class="button button-light" href="#services">Explore services <span aria-hidden="true">↓</span></a></div>
+        <div class="trust-row reveal"><span><b>Glasgow based</b>Local service</span><span><b>Clear quotes</b>No mystery fees</span><span><b>Flexible care</b>Built around your home</span></div>
+      </div>
+      <div class="clean-meter reveal"><span>Today’s mood</span><b>Fresh</b><i></i></div>
+    </section>
 
-            <div class="features">
-                <div class="container">
-                    <h2>Why Choose Our Products</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <i class="fas fa-leaf"></i>
-                            <h3>Natural Ingredients</h3>
-                            <p>Made with pure, plant-based ingredients for your skin</p>
-                        </div>
-                        <div class="feature-card">
-                            <i class="fas fa-certificate"></i>
-                            <h3>Quality <br> Guaranteed</h3>
-                            <p>100% satisfaction guarantee on all our products</p>
-                        </div>
-                        <div class="feature-card">
-                            <i class="fas fa-truck"></i>
-                            <h3>Fast Shipping</h3>
-                            <p>Free shipping on orders over £50</p>
-                        </div>
-                        <div class="feature-card">
-                            <i class="fas fa-recycle"></i>
-                            <h3>Eco-Friendly</h3>
-                            <p>Sustainable packaging and ethical sourcing</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="service-section section" id="services">
+      <div class="shell section-head"><div><p class="eyebrow">Choose your reset</p><h2>A cleaner space,<br><em>without the mental load.</em></h2></div><p>Tell us what needs attention. We will help shape the right clean for the space, timing and level of detail you need.</p></div>
+      <div class="shell service-grid">
+        <article class="service-card featured reveal"><div class="service-top"><span>01</span><b>Most popular</b></div><div class="service-mark">R</div><h3>Regular home cleaning</h3><p>Consistent care for the rooms you live in most, scheduled around your routine.</p><ul><li>Weekly or recurring visits</li><li>Kitchens, bathrooms and living spaces</li><li>Flexible home sizes</li></ul><button type="button" data-service="Regular home cleaning">Get a regular-clean quote ↗</button></article>
+        <article class="service-card reveal"><div class="service-top"><span>02</span></div><div class="service-mark">D</div><h3>Deep cleaning</h3><p>A detailed top-to-bottom reset for spaces that need more time and attention.</p><ul><li>Room-by-room scope</li><li>Bathrooms, kitchen and utility areas</li><li>One-off or seasonal</li></ul><button type="button" data-service="Deep cleaning">Plan a deep clean ↗</button></article>
+        <article class="service-card reveal"><div class="service-top"><span>03</span></div><div class="service-mark">T</div><h3>End-of-tenancy</h3><p>A thorough clean designed for moving out, moving in and handing a property over well.</p><ul><li>Whole-property attention</li><li>Kitchen and bathroom detail</li><li>Easy quote preparation</li></ul><button type="button" data-service="End-of-tenancy cleaning">Get a tenancy quote ↗</button></article>
+        <article class="service-card reveal"><div class="service-top"><span>04</span></div><div class="service-mark">B</div><h3>After-build cleaning</h3><p>Careful removal of post-project dust and residue so your finished space can finally feel finished.</p><ul><li>Rooms and surfaces</li><li>Kitchens and bathrooms</li><li>Post-renovation detail</li></ul><button type="button" data-service="After-build cleaning">Discuss your project ↗</button></article>
+      </div>
+    </section>
 
-            <div class="products">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Best Sellers</h2>
-                        <p>Our most loved products</p>
-                    </div>
-                    <div class="products-grid">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/assets/img/Olive1.jpg" alt="Olive Face Cream">
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Nourishing Olive Face Cream</h3>
-                                <div class="product-price">£24.99</div>
-                                <div class="product-rating">★★★★★</div>
-                                <div class="product-actions">
-                                    <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                                    <button class="view-details" onclick="showProductDetail(1)"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets/img/olive2.jpg" alt="Aromatherapy Set">
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Calming Aromatherapy Set</h3>
-                                <div class="product-price">£32.99</div>
-                                <div class="product-rating">★★★★☆</div>
-                                <div class="product-actions">
-                                    <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                                    <button class="view-details" onclick="showProductDetail(2)"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets/img/olive3.jpg" alt="Olive Body Scrub">
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Olive Body Scrub</h3>
-                                <div class="product-price">£18.99</div>
-                                <div class="product-rating">★★★★★</div>
-                                <div class="product-actions">
-                                    <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                                    <button class="view-details" onclick="showProductDetail(3)"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets/img/olive4.jpg" alt="Lip Care Kit">
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Olive Lip Care Kit</h3>
-                                <div class="product-price">£14.99</div>
-                                <div class="product-rating">★★★★☆</div>
-                                <div class="product-actions">
-                                    <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                                    <button class="view-details" onclick="showProductDetail(4)"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="difference section" id="difference">
+      <div class="shell difference-grid"><div class="difference-visual reveal"><div class="orb"><span>G</span><b>S</b><i>✦</i></div><p>Breathe out.<br>The cleaning is handled.</p></div><div class="difference-copy"><p class="eyebrow reveal">The G&S difference</p><h2 class="reveal">A quiet standard<br><em>you can feel.</em></h2><p class="reveal">A great clean is not about rushing through a checklist. It is about noticing the edges, respecting the space and leaving every room easier to live in.</p><div class="principles"><article class="reveal"><span>01</span><div><h3>Clear before we arrive</h3><p>Your quote, priorities and expectations are agreed first.</p></div></article><article class="reveal"><span>02</span><div><h3>Care while we work</h3><p>We treat your home, belongings and time with respect.</p></div></article><article class="reveal"><span>03</span><div><h3>Easy after we leave</h3><p>Questions and follow-up stay simple and direct.</p></div></article></div></div></div>
+    </section>
 
-            <div class="testimonials">
-                <div class="container">
-                    <h2>What Our Customers Say</h2>
-                    <div class="testimonials-slider">
-                        <div class="testimonial">
-                            <div class="stars">★★★★★</div>
-                            <p>"The Olive Face Cream has transformed my skincare routine! My skin has never felt so nourished and hydrated."</p>
-                            <div class="author">- Mr Brian John</div>
-                        </div>
-                        <div class="testimonial">
-                            <div class="stars">★★★★★</div>
-                            <p>"The aromatherapy set is amazing! It helps me relax after a long day and the scents are incredible."</p>
-                            <div class="author">- Pst Victor Adeboyejo</div>
-                        </div>
-                        <div class="testimonial">
-                            <div class="stars">★★★★★</div>
-                            <p>"Fast shipping and wonderful products. The body scrub leaves my skin feeling silky smooth."</p>
-                            <div class="author">- Engr Isaac Brown</div>
-                        </div>
-                        <div class="testimonial">
-                            <div class="stars">★★★★☆</div>
-                            <p>"I love the lip care kit! My lips have never been softer. Highly recommend to anyone looking for natural products."</p>
-                            <div class="author">- Mrs Oladele D</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="process section" id="process"><div class="shell process-head"><p class="eyebrow">From enquiry to exhale</p><h2>Three steps.<br><em>Zero confusion.</em></h2></div><div class="shell process-grid"><article class="reveal"><b>01</b><span>Tell us about the space</span><p>Choose a service and share the rooms, timing and details that matter.</p></article><article class="reveal"><b>02</b><span>Review your quote</span><p>We confirm the scope and price before anything is booked.</p></article><article class="reveal"><b>03</b><span>Enjoy the reset</span><p>We complete the clean with care so you can return to a fresher space.</p></article></div></section>
 
-        <!-- Shop Page -->
-        <section id="shop" class="page">
-            <div class="container">
-                <div class="section-header">
-                    <h1>Our Products</h1>
-                    <p>Discover our natural beauty collection</p>
-                </div>
+    <section class="quote-section section" id="quote">
+      <div class="shell quote-card reveal">
+        <div class="quote-intro"><p class="eyebrow">Your quote starts here</p><h2>Tell us what<br><em>needs cleaning.</em></h2><p>Complete the essentials and we will prepare a clear enquiry email for you. No payment is taken on this website.</p><div class="direct-contact"><span>Prefer to speak?</span><a href="tel:+4477836202627">+44 7783 620 2627 ↗</a></div></div>
+        <form class="quote-form" id="quote-form">
+          <div class="form-row"><label><span>Your name *</span><input id="quote-name" type="text" autocomplete="name" required placeholder="Full name"></label><label><span>Email *</span><input id="quote-email" type="email" autocomplete="email" required placeholder="you@example.com"></label></div>
+          <div class="form-row"><label><span>Phone</span><input id="quote-phone" type="tel" autocomplete="tel" placeholder="Best number to reach you"></label><label><span>Preferred date</span><input id="quote-date" type="date"></label></div>
+          <label><span>Cleaning service *</span><select id="quote-service" required><option value="" selected disabled>Select a service</option><option>Regular home cleaning</option><option>Deep cleaning</option><option>End-of-tenancy cleaning</option><option>After-build cleaning</option><option>Something else</option></select></label>
+          <div class="form-row"><label><span>Bedrooms</span><select id="quote-bedrooms"><option>Studio / none</option><option>1 bedroom</option><option>2 bedrooms</option><option>3 bedrooms</option><option>4 bedrooms</option><option>5+ bedrooms</option></select></label><label><span>Bathrooms</span><select id="quote-bathrooms"><option>1 bathroom</option><option>2 bathrooms</option><option>3 bathrooms</option><option>4+ bathrooms</option></select></label></div>
+          <label><span>Anything else we should know?</span><textarea id="quote-details" rows="4" placeholder="Access, pets, priority areas, condition of the property..."></textarea></label>
+          <button class="button button-mint" type="submit">Prepare my quote request <span aria-hidden="true">↗</span></button><p class="form-note" id="quote-note">This opens your email app with the details ready to send.</p>
+        </form>
+      </div>
+    </section>
 
-                <div class="products-grid">
-                    <!-- Products will be loaded dynamically -->
-                </div>
-            </div>
-        </section>
+    <section class="contact section" id="contact"><div class="shell contact-grid"><div><p class="eyebrow">Glasgow, Scotland</p><h2>Ready when<br><em>your space is.</em></h2></div><div class="contact-list"><a href="tel:+4477836202627"><span>Phone</span><b>+44 7783 620 2627</b><i>↗</i></a><a href="mailto:info@glittersandsparkles.com"><span>Email</span><b>info@glittersandsparkles.com</b><i>↗</i></a><a href="https://www.google.com/maps/search/?api=1&query=1345+Victoria+Road+Glasgow+G42+7SA" target="_blank" rel="noreferrer"><span>Area</span><b>Victoria Road, Glasgow G42</b><i>↗</i></a></div></div></section>
+  </main>
 
-        <!-- Product Detail Page -->
-        <section id="product-detail" class="page">
-            <div class="container">
-                <div class="product-detail">
-                    <div class="product-gallery">
-                        <img id="detail-image" src="" alt="Product Image" class="main-image">
-                        <div class="thumbnail-container">
-                            <img src="" alt="Thumbnail 1" class="thumbnail active">
-                            <img src="" alt="Thumbnail 2" class="thumbnail">
-                            <img src="" alt="Thumbnail 3" class="thumbnail">
-                        </div>
-                    </div>
-                    <div class="product-info-detail">
-                        <h1 id="detail-title" class="product-title-detail"></h1>
-                        <div id="detail-price" class="product-price-detail"></div>
-                        <div class="product-rating">★★★★★</div>
-                        <p id="detail-description" class="product-description"></p>
-                        
-                        <div class="quantity-selector">
-                            <label for="quantity">Quantity:</label>
-                            <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
-                            <input type="number" id="quantity" class="quantity-input" value="1" min="1">
-                            <button class="quantity-btn" onclick="increaseQuantity()">+</button>
-                        </div>
-                        
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCartFromDetail()">Add to Cart</button>
-                        
-                        <div style="margin-top: 30px;">
-                            <h3>Product Details</h3>
-                            <ul id="detail-features">
-                                <!-- Features will be added dynamically -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <footer class="site-footer"><div class="shell footer-grid"><a class="brand footer-brand" href="#top"><img src="assets/img/logo1.jpg" alt="" width="64" height="48"><span>Glitters <i>&</i> Sparkles</span></a><div><p>Breath of fresh clean.</p><span>Professional cleaning across Glasgow</span></div><div class="footer-links"><a href="#services">Services</a><a href="#difference">Why us</a><a href="#quote">Get a quote</a><a href="#contact">Contact</a></div><div class="footer-meta"><span>© <b id="year"></b> Glitters & Sparkles Ltd</span><a href="#top">Back to top ↑</a></div></div></footer>
 
-        <!-- About Page -->
-        <section id="about" class="page">
-            <div class="container">
-                <div class="about-hero">
-                    <h1>About Glitters and Sparkles</h1>
-                    <p class="lead">Your trusted partner in natural beauty and wellness since 2022</p>
-                </div>
-
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>Our Story</h2>
-                        <p>Glitters and Sparkles was founded with a simple mission: to create natural beauty products that are effective, ethical, and enjoyable to use. We believe that self-care should be a joyful part of your daily routine.</p>
-                        
-                        <h3>Our Mission</h3>
-                        <p>To provide exceptional natural beauty products that exceed expectations while maintaining the highest standards of quality, sustainability, and ethical responsibility.</p>
-
-                        <h3>Our Values</h3>
-                        <ul class="values-list">
-                            <li><i class="fas fa-check"></i> Natural and plant-based ingredients</li>
-                            <li><i class="fas fa-check"></i> Environmental responsibility</li>
-                            <li><i class="fas fa-check"></i> Customer satisfaction</li>
-                            <li><i class="fas fa-check"></i> Ethical sourcing</li>
-                            <li><i class="fas fa-check"></i> Continuous innovation</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <img src="/assets/img/olive5.jpg" alt="Our Natural Products">
-                    </div>
-                </div>
-
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-number">100+</div>
-                        <div class="stat-label">Happy Customers</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">1+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Products</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">99%</div>
-                        <div class="stat-label">Satisfaction Rate</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Page -->
-        <section id="contact" class="page">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p class="leads">Get in touch with any questions</p>
-
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h2>Get In Touch</h2>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+447 7836 202627</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@glittersandsparkles.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Address</h4>
-                                <p>1345, Victoria Road<br>Glasgow<br>G42 7SA</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Hours</h4>
-                                <p>Mon-Fri: 8AM-6PM<br>Sat-Sun: 9AM-4PM</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form class="contact-form" id="contactForm">
-                        <h2>Send us a Message</h2>
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="How can we help you?" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cart Page -->
-        <section id="cart" class="page">
-            <div class="container">
-                <h1>Your Shopping Cart</h1>
-                
-                <div class="cart-container">
-                    <div class="cart-items">
-                        <!-- Cart items will be loaded dynamically -->
-                        <div class="empty-cart-message" style="text-align: center; padding: 50px;">
-                            <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 20px;"></i>
-                            <h3>Your cart is empty</h3>
-                            <p>Browse our products and add something special</p>
-                            <button class="btn btn-primary" onclick="showPage('shop')">Continue Shopping</button>
-                        </div>
-                    </div>
-                    
-                    <div class="cart-summary">
-                        <h3>Order Summary</h3>
-                        <div class="summary-item">
-                            <span>Subtotal</span>
-                            <span>£0.00</span>
-                        </div>
-                        <div class="summary-item">
-                            <span>Shipping</span>
-                            <span>£0.00</span>
-                        </div>
-                        <div class="summary-item summary-total">
-                            <span>Total</span>
-                            <span>£0.00</span>
-                        </div>
-                        <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="showPage('checkout')">Proceed to Checkout</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Checkout Page -->
-        <section id="checkout" class="page">
-            <div class="container">
-                <h1>Checkout</h1>
-                
-                <div class="checkout-container">
-                    <div class="checkout-form">
-                        <form id="checkoutForm">
-                            <div class="form-section">
-                                <h2>Shipping Information</h2>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="firstName">First Name</label>
-                                        <input type="text" id="firstName" name="firstName" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastName">Last Name</label>
-                                        <input type="text" id="lastName" name="lastName" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" id="address" name="address" required>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="city">City</label>
-                                        <input type="text" id="city" name="city" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="postcode">Postcode</label>
-                                        <input type="text" id="postcode" name="postcode" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="country">Country</label>
-                                    <select id="country" name="country" required>
-                                        <option value="">Select Country</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="us">United States</option>
-                                        <option value="ca">Canada</option>
-                                        <option value="au">Australia</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-section">
-                                <h2>Payment Method</h2>
-                                <div class="form-group">
-                                    <label for="cardNumber">Card Number</label>
-                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="expiry">Expiry Date</label>
-                                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="cvv">CVV</label>
-                                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Complete Order</button>
-                        </form>
-                    </div>
-                    
-                    <div class="cart-summary">
-                        <h3>Order Summary</h3>
-                        <div class="summary-item">
-                            <span>Subtotal</span>
-                            <span>£0.00</span>
-                        </div>
-                        <div class="summary-item">
-                            <span>Shipping</span>
-                            <span>£0.00</span>
-                        </div>
-                        <div class="summary-item summary-total">
-                            <span>Total</span>
-                            <span>£0.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/4477836202627" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <img src="assets/img/footer.jpg" alt="Footer Background" class="footer-bg">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <div class="logo-icon">
-                            <img src="assets/img/logo1.jpg" alt="Glitters and Sparkles Logo" style="height: 40px; width: auto; border-radius: 10px;">
-                        </div>
-                        <span class="logo-tex" style="font-size: 20px; color: white;">Glitters and Sparkles Beauty</span>
-                    </div>
-                    <p>Natural beauty products you can trust. Enhancing your natural glow with plant-based ingredients.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Shop</h4>
-                    <ul>
-                        <li><a href="#" onclick="showPage('shop'); return false;">All Products</a></li>
-                        <li><a href="#">Skincare</a></li>
-                        <li><a href="#">Aromatherapy</a></li>
-                        <li><a href="#">Body Care</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#" onclick="showPage('about'); return false;">About Us</a></li>
-                        <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-phone"></i> +447 7836 202627</p>
-                    <p><i class="fas fa-envelope"></i> info@glittersandsparkles.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 345, Victoria Road<br>Glasgow<br>G42 7SA</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Glitters and Sparkles Beauty. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-
-    <script src="script.js"></script>
-
-    <script>
-// Contact form handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Show loading state
-    const submitBtn = document.getElementById('submitContact');
-    const messageDiv = document.getElementById('contactMessage');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    messageDiv.style.display = 'none';
-    
-    // Collect form data
-    const formData = new FormData(this);
-    
-    // Send AJAX request
-    fetch('process_contact.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        messageDiv.style.display = 'block';
-        if (data.status === 'success') {
-            messageDiv.innerHTML = data.message;
-            messageDiv.style.backgroundColor = '#d4edda';
-            messageDiv.style.color = '#155724';
-            messageDiv.style.border = '1px solid #c3e6cb';
-            // Reset form
-            document.getElementById('contactForm').reset();
-        } else {
-            messageDiv.innerHTML = data.message;
-            messageDiv.style.backgroundColor = '#f8d7da';
-            messageDiv.style.color = '#721c24';
-            messageDiv.style.border = '1px solid #f5c6cb';
-        }
-    })
-    .catch(error => {
-        messageDiv.style.display = 'block';
-        messageDiv.innerHTML = 'Sorry, there was an error sending your message. Please try again or call us directly.';
-        messageDiv.style.backgroundColor = '#f8d7da';
-        messageDiv.style.color = '#721c24';
-        messageDiv.style.border = '1px solid #f5c6cb';
-    })
-    .finally(() => {
-        // Restore button state
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    });
-});
-
-// Quote form handling
-document.getElementById('quoteForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Show loading state
-    const submitBtn = document.getElementById('submitQuote');
-    const messageDiv = document.getElementById('quoteMessage');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Submitting...';
-    submitBtn.disabled = true;
-    messageDiv.style.display = 'none';
-    
-    // Collect form data
-    const formData = new FormData(this);
-    
-    // Send AJAX request
-    fetch('process_quote.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        messageDiv.style.display = 'block';
-        if (data.status === 'success') {
-            messageDiv.innerHTML = data.message;
-            messageDiv.style.backgroundColor = '#d4edda';
-            messageDiv.style.color = '#155724';
-            messageDiv.style.border = '1px solid #c3e6cb';
-            // Reset form
-            document.getElementById('quoteForm').reset();
-            document.getElementById('estimatedPrice').textContent = '0';
-        } else {
-            messageDiv.innerHTML = data.message;
-            messageDiv.style.backgroundColor = '#f8d7da';
-            messageDiv.style.color = '#721c24';
-            messageDiv.style.border = '1px solid #f5c6cb';
-        }
-    })
-    .catch(error => {
-        messageDiv.style.display = 'block';
-        messageDiv.innerHTML = 'Sorry, there was an error submitting your request. Please try again or call us directly.';
-        messageDiv.style.backgroundColor = '#f8d7da';
-        messageDiv.style.color = '#721c24';
-        messageDiv.style.border = '1px solid #f5c6cb';
-    })
-    .finally(() => {
-        // Restore button state
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    });
-});
-</script>
-
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
