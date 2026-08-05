@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
                 <h2 style='color: #4a6ee0;'>Thank you for your message!</h2>
                 <p>We have received your inquiry and will respond within 24 hours.</p>
-                <p>If you have any urgent questions, please call us at <strong>+447 7836 202627</strong></p>
+                <p>If you have any urgent questions, please call us at <strong>+447 1234567890</strong></p>
                 <br>
                 <p>Best regards,<br>The Glitters and Sparkles Team</p>
             </div>
