@@ -63,7 +63,14 @@
     const subject = `Cleaning quote request — ${service}`;
     const body = `Hello Glitters & Sparkles,\n\nI would like a cleaning quote.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nPreferred date: ${date}\nHome: ${bedrooms}, ${bathrooms}\n\nAdditional details:\n${details}\n\nThank you.`;
     showToast('Opening your email app…');
-    window.location.href = `mailto:info@glittersandsparkles.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = new URL('https://mail.google.com/mail/');
+    gmailUrl.searchParams.set('view', 'cm');
+    gmailUrl.searchParams.set('fs', '1');
+    gmailUrl.searchParams.set('to', 'info@glittersandsparkles.com');
+    gmailUrl.searchParams.set('su', subject);
+    gmailUrl.searchParams.set('body', body);
+
+    window.location.assign(gmailUrl.toString());
   });
 
   document.querySelector('#year').textContent = new Date().getFullYear();
