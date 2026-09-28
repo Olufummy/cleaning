@@ -899,18 +899,27 @@ textarea {
 @media (max-width: 960px) {
   .primary-nav {
     position: fixed;
-    inset: 0;
-    z-index: 1;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
     padding: 90px 9vw;
+
     background: var(--paper);
     font: 700 32px var(--display);
+
     opacity: 0;
     visibility: hidden;
     transform: translateY(-15px);
     transition: 0.25s;
+
+    overflow-y: auto;
   }
 
   .primary-nav.open {
@@ -927,7 +936,7 @@ textarea {
   .menu-toggle {
     width: 44px;
     height: 44px;
-    z-index: 2;
+    z-index: 100;
     display: grid;
     place-content: center;
     gap: 6px;
@@ -994,6 +1003,10 @@ textarea {
    ======================================== */
 
 @media (max-width: 640px) {
+  .primary-nav {
+    top: 72px;
+  }
+
   .shell {
     width: calc(100% - 30px);
   }
@@ -1121,26 +1134,5 @@ textarea {
 
   .footer-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-/* ========================================
-   REDUCED MOTION
-   ======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
   }
 }
