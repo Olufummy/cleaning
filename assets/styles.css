@@ -899,11 +899,9 @@ textarea {
 @media (max-width: 960px) {
   .primary-nav {
     position: fixed;
-    top: 80px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99;
+    inset: 0;
+    z-index: 1;
+    display: flex;
 
     flex-direction: column;
     justify-content: center;
@@ -928,18 +926,29 @@ textarea {
     transform: none;
   }
 
-  .nav-call,
+   .nav-call,
   .nav-cta {
-    font: 700 13px var(--body);
+    font: 800 13px var(--body);
   }
 
-  .menu-toggle {
+  .nav-cta {
+    display: inline-block;
+    width: 50%;
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 20px 18px;
+    text-align: center;
+  }
+
+    .menu-toggle {
     width: 44px;
     height: 44px;
-    z-index: 100;
+    z-index: 2;
+
     display: grid;
     place-content: center;
     gap: 6px;
+
     border: 1px solid var(--line);
     border-radius: 50%;
     background: rgba(248, 247, 241, 0.8);
@@ -960,6 +969,7 @@ textarea {
     transform: translateY(-3.5px) rotate(-45deg);
   }
 
+  /* Keep the rest of your existing tablet rules */
   .hero-wash {
     background: linear-gradient(
       90deg,
@@ -1003,17 +1013,51 @@ textarea {
    ======================================== */
 
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  .site-header {
+    z-index: 1200;
+  }
+
+  .nav-shell {
+    position: relative;
+    z-index: 1201;
+
+    width: calc(100% - 24px);
+    height: 72px;
+  }
+
   .primary-nav {
+    /* Header is 72px on phones */
     top: 72px;
+
+    /* Fill exactly the remaining screen */
+    height: calc(100dvh - 72px);
+    bottom: auto;
+
+    /* Smaller mobile padding */
+    padding: 24px 30px 40px;
+
+    /* NEVER hide links */
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /* Start at the top */
+    justify-content: flex-start;
+  }
+
+  .primary-nav > a {
+    padding: 13px 0;
+  }
+
+  .menu-toggle {
+    z-index: 1202;
   }
 
   .shell {
     width: calc(100% - 30px);
-  }
-
-  .nav-shell {
-    width: calc(100% - 24px);
-    height: 72px;
   }
 
   .brand {
